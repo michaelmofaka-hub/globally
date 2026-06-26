@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">Global Ad Network</div>
+        <nav class="nav-links">
+          <a href="admin-dashboard.html" class="active">Dashboard</a>
+          <a href="../interact/interact.html">Chat</a>
+          <a id="tasks-link" href="../tasks/tasks.html">Tasks</a>
+          <a href="#campaigns">Campaigns</a>
+          <a href="#settings">Settings</a>
+          <button id="logout">Log out</button>
+          <a href="../login-sigin/login.html">Back to login</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="topbar">
+          <div>
+            <p class="badge">Admin Workspace</p>
+            <h1>Welcome, <span id="welcome-name">Admin</span></h1>
+            <p id="role-tag">ADMIN</p>
+            <p class="badge muted">User: <span id="user-name">Admin</span> • Role: <span id="user-role">ADMIN</span></p>
+          </div>
+          <button id="logout-btn" class="secondary">Logout</button>
+        </div>
+
+        <section class="grid">
+          <article class="card">
+            <h3>Active Campaigns</h3>
+            <strong>24</strong>
+            <p>Monitor ad performance, budgets, and campaign health from one place.</p>
+          </article>
+          <article class="card">
+            <h3>Pending Reviews</h3>
+            <strong>8</strong>
+            <p>Review advertiser and publisher requests before approving launches.</p>
+          </article>
+          <article class="card">
+            <h3>Monthly Revenue</h3>
+            <strong>$96K</strong>
+            <p>Track revenue trends across all active channels.</p>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="card">
+            <h3>Quick Actions</h3>
+            <div class="mini-card">
+              <h3>Review pending advertisers</h3>
+              <p>Approve or decline requests quickly from one place.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Approve publisher requests</h3>
+              <p>Confirm new inventory, placements, and monetization status.</p>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Insights</h3>
+            <div class="mini-card">
+              <h3>Revenue overview</h3>
+              <p>Use the admin snapshot to keep campaign health and payout trends on track.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

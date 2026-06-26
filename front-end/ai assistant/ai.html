@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ai.css">
+    <title>Document</title>
+</head>
+<body>
+ <main class="hero">
+    <aside class="sidebar">
+        <h1 class="hero-logo">global</h1>
+        <nav class="nav-links">
+            <a href="../users-dashboard">Dashboard</a></li>
+            <a href="../users-dashboard/advertiser-dashboard.html">Advertise</a></li>
+            <a href="../users-dashboard/publisher-dashboard.html">Publish</a></li>
+            <a href="../invest/invest.html">Invest</a></li>
+            <a href="../users-dashboard">Wallet</a>
+            <a href="#support">Support</a>
+            <a href="#settings">Settings</a>
+       </nav>
+
+        <button id="logout">log out</button>
+    </aside>
+    <div class="hero-right">
+        <nav class="top-nav">
+            <div class="hero-content">
+              <h1>Ai Assistant</h1>
+              <p>your smart ai for better results</p>
+             </div>
+            <a href="#upgrade" id="upgrade">upgrade</a>
+        </nav>
+       
+     <div class="hero-cards">
+        <div class="hero-card-grid">
+            <i class=""></i>
+
+            <h2>Ai Ad Generator</h2>
+            <p>generate high ads with ai assistant</p>
+        </div>
+        <div class="hero-card-grid">
+            <i class=""></i>
+            <h2>Campaign Optimizer</h2>
+            <p>generate high ads with ai assistant</p>
+        </div>
+        <div class="hero-card-grid">
+            <i class=""></i>
+            <h2>Invest With smart Ai</h2>
+            <p>get high investments with smart Ai</p>
+        </div>
+        <div class="hero-card-grid">
+            <i class=""></i>
+            <h2>Content Writer</h2>
+            <p>generate high ads with ai assistant</p>
+        </div>
+    </div>
+    <div class="ai-chat-history">
+        <div class="chat-panel">
+            <header class="chat-header">
+          <div>
+            <p class="eyebrow">Current conversation</p>
+            <h2 id="chat-title">Alicia Lane</h2>
+            <p class="muted small" id="chat-note">
+              Responding to campaign updates and approvals.
+            </p>
+          </div>
+          <div class="chat-actions">
+            <button class="ghost-btn" id="new-chat-btn" type="button">New chat</button>
+            <button class="ghost-btn" id="demo-reply-btn" type="button">Quick reply</button>
+          </div>
+        </header>
+        <section class="chat-feed" id="chat-feed">
+          <article class="bubble incoming">
+            <p>Hi team, please confirm the new creative assets for the weekend launch.</p>
+            <span>09:24 AM</span>
+          </article>
+          <article class="bubble outgoing">
+            <p>Confirmed. The video and banner set are ready for review.</p>
+            <span>09:27 AM</span>
+          </article>
+          <article class="bubble incoming">
+            <p>Perfect. I will approve the publisher placements after the final budget check.</p>
+            <span>09:30 AM</span>
+          </article>
+        </section>
+            <form class="composer" id="composer-form">
+            <input
+            id="message-input"
+            type="text"
+            placeholder="Type your message to the AI assistant"
+          />
+          <button class="btn" type="submit">Send</button>
+        </form>
+        </div>
+        </div>
+    </div>
+    </div>
+ <script src="./ai.js"></script>
+ </main>   
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publisher Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">Global Ad Network</div>
+        <nav class="nav-links">
+          <a href="publisher-dashboard.html" class="active">Dashboard</a>
+          <a href="../interact/interact.html">Chat</a>
+          <a id="tasks-link" href="../tasks/tasks.html">Tasks</a>
+          <a href="#inventory">Inventory</a>
+          <a href="#settings">Settings</a>
+          <button id="logout">Log out</button>
+          <a href="../login-sigin/login.html">Back to login</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="topbar">
+          <div>
+            <p class="badge">Publisher Workspace</p>
+            <h1>Welcome, <span id="welcome-name">Publisher</span></h1>
+            <p id="role-tag">PUBLISHER</p>
+            <p class="badge muted">User: <span id="user-name">Publisher</span> • Role: <span id="user-role">PUBLISHER</span></p>
+          </div>
+          <button id="logout-btn" class="secondary">Logout</button>
+        </div>
+
+        <section class="grid">
+          <article class="card">
+            <h3>Fill Rate</h3>
+            <strong>86%</strong>
+            <p>Track how much inventory is being monetized and where to optimize next.</p>
+          </article>
+          <article class="card">
+            <h3>Revenue</h3>
+            <strong>$18,420</strong>
+            <p>Monthly earnings from active placements.</p>
+          </article>
+          <article class="card">
+            <h3>Impressions</h3>
+            <strong>2.4M</strong>
+            <p>Traffic volume across your publisher network.</p>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="card">
+            <h3>Inventory Highlights</h3>
+            <div class="mini-card">
+              <h3>Premium placements</h3>
+              <p>Keep high-performing units visible in your top inventory list.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Revenue trends</h3>
+              <p>Monitor growth and optimize where the demand is strongest.</p>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Tips</h3>
+            <div class="mini-card">
+              <h3>Fill optimization</h3>
+              <p>Improve response time and bid competition for your best inventory.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

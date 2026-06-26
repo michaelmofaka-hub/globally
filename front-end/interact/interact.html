@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Chat | Global Ad Network</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="chat-shell">
+      <aside class="members-panel">
+        <div>
+          <p class="eyebrow">Platform chat</p>
+          <h1>Talk with members</h1>
+          <p class="muted">
+            Stay connected with advertisers, publishers, and admins in one
+            place.
+          </p>
+        </div>
+
+        <div class="member-list">
+          <button class="member-card active" type="button" data-member="Alicia Lane">
+            <span class="avatar">AL</span>
+            <span>
+              <strong>Alicia Lane</strong>
+              <small>Admin • Online</small>
+            </span>
+          </button>
+          <button class="member-card" type="button" data-member="Jordan Miles">
+            <span class="avatar">JM</span>
+            <span>
+              <strong>Jordan Miles</strong>
+              <small>Publisher • Away</small>
+            </span>
+          </button>
+          <button class="member-card" type="button" data-member="Sofia Kim">
+            <span class="avatar">SK</span>
+            <span>
+              <strong>Sofia Kim</strong>
+              <small>Advertiser • Online</small>
+            </span>
+          </button>
+          <button class="member-card" type="button" data-member="Daniel Tate">
+            <span class="avatar">DT</span>
+            <span>
+              <strong>Daniel Tate</strong>
+              <small>Support • Online</small>
+            </span>
+          </button>
+        </div>
+      </aside>
+
+      <section class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Current conversation</p>
+            <h2 id="chat-title">Alicia Lane</h2>
+            <p class="muted small" id="chat-note">
+              Responding to campaign updates and approvals.
+            </p>
+          </div>
+          <div class="chat-actions">
+            <button class="ghost-btn" id="new-chat-btn" type="button">New chat</button>
+            <button class="ghost-btn" id="demo-reply-btn" type="button">Quick reply</button>
+          </div>
+        </header>
+
+        <section class="chat-feed" id="chat-feed">
+          <article class="bubble incoming">
+            <p>Hi team, please confirm the new creative assets for the weekend launch.</p>
+            <span>09:24 AM</span>
+          </article>
+          <article class="bubble outgoing">
+            <p>Confirmed. The video and banner set are ready for review.</p>
+            <span>09:27 AM</span>
+          </article>
+          <article class="bubble incoming">
+            <p>Perfect. I will approve the publisher placements after the final budget check.</p>
+            <span>09:30 AM</span>
+          </article>
+        </section>
+
+        <form class="composer" id="composer-form">
+          <input
+            id="message-input"
+            type="text"
+            placeholder="Type your message to the platform members"
+          />
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const memberProfiles = {
+        'Alicia Lane': {
+          note: 'Responding to campaign updates and approvals.',
+          replies: ['Absolutely, I will review the latest campaign notes.', 'Thanks for the update — approved for launch.']
+        },
+        'Jordan Miles': {
+          note: 'Checking the publisher placements and payout schedule.',
+          replies: ['The placements are live and tracking correctly.', 'I am confirming the payout details now.']
+        },
+        'Sofia Kim': {
+          note: 'Reviewing the creative package for the next launch.',
+          replies: ['The new banner set looks strong for this audience.', 'I will share the final asset version shortly.']
+        },
+        'Daniel Tate': {
+          note: 'Supporting the team with campaign compliance updates.',
+          replies: ['I have flagged the policy changes for the team.', 'The support checklist is ready for review.']
+        }
+      };
+
+      const memberConversations = {
+        'Alicia Lane': [
+          { type: 'incoming', text: 'Hi team, please confirm the new creative assets for the weekend launch.', time: '09:24 AM' },
+          { type: 'outgoing', text: 'Confirmed. The video and banner set are ready for review.', time: '09:27 AM' },
+          { type: 'incoming', text: 'Perfect. I will approve the publisher placements after the final budget check.', time: '09:30 AM' }
+        ],
+        'Jordan Miles': [
+          { type: 'incoming', text: 'I am updating the publisher placements for the new campaign.', time: '10:05 AM' },
+          { type: 'outgoing', text: 'I will sync the latest budget numbers in two minutes.', time: '10:07 AM' }
+        ],
+        'Sofia Kim': [
+          { type: 'incoming', text: 'The audience reach summary looks promising for the next test.', time: '11:10 AM' },
+          { type: 'outgoing', text: 'I can add the new creative set to the launch list.', time: '11:12 AM' }
+        ],
+        'Daniel Tate': [
+          { type: 'incoming', text: 'I have a quick compliance update for the team.', time: '12:15 PM' },
+          { type: 'outgoing', text: 'Thanks, I will review the checklist before the meeting.', time: '12:18 PM' }
+        ]
+      };
+
+      const feed = document.getElementById('chat-feed');
+      const title = document.getElementById('chat-title');
+      const note = document.getElementById('chat-note');
+      const input = document.getElementById('message-input');
+      const composer = document.getElementById('composer-form');
+      const memberButtons = document.querySelectorAll('.member-card');
+      const newChatBtn = document.getElementById('new-chat-btn');
+      const quickReplyBtn = document.getElementById('demo-reply-btn');
+      let currentMember = 'Alicia Lane';
+
+      function formatTime() {
+        const now = new Date();
+        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      }
+
+      function renderConversation(member) {
+        currentMember = member;
+        title.textContent = member;
+        note.textContent = memberProfiles[member].note;
+
+        memberButtons.forEach((button) => {
+          button.classList.toggle('active', button.dataset.member === member);
+        });
+
+        feed.innerHTML = '';
+        memberConversations[member].forEach((message) => {
+          const bubble = document.createElement('article');
+          bubble.className = `bubble ${message.type}`;
+          bubble.innerHTML = `<p>${message.text}</p><span>${message.time}</span>`;
+          feed.appendChild(bubble);
+        });
+      }
+
+      function pushMessage(type, text) {
+        memberConversations[currentMember].push({ type, text, time: formatTime() });
+        const bubble = document.createElement('article');
+        bubble.className = `bubble ${type}`;
+        bubble.innerHTML = `<p>${text}</p><span>${memberConversations[currentMember].at(-1).time}</span>`;
+        feed.appendChild(bubble);
+        feed.scrollTop = feed.scrollHeight;
+      }
+
+      memberButtons.forEach((button) => {
+        button.addEventListener('click', () => renderConversation(button.dataset.member));
+      });
+
+      composer.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+
+        pushMessage('outgoing', text);
+        input.value = '';
+
+        window.setTimeout(() => {
+          const reply = memberProfiles[currentMember].replies[Math.floor(Math.random() * memberProfiles[currentMember].replies.length)];
+          pushMessage('incoming', reply);
+        }, 500);
+      });
+
+      newChatBtn.addEventListener('click', () => {
+        memberConversations[currentMember] = [];
+        renderConversation(currentMember);
+      });
+
+      quickReplyBtn.addEventListener('click', () => {
+        const reply = memberProfiles[currentMember].replies[Math.floor(Math.random() * memberProfiles[currentMember].replies.length)];
+        pushMessage('incoming', reply);
+      });
+
+      renderConversation('Alicia Lane');
+    </script>
+  </body>
+</html>

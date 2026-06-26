@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advertiser Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">Global Ad Network</div>
+        <nav class="nav-links">
+          <a href="advertiser-dashboard.html" class="active">Dashboard</a>
+          <a href="../interact/interact.html">Chat</a>
+          <a href="#manageusers">manage users</a>
+          <a href="#campaign">capaigns</a>
+          <a href="#settings">settings</a>
+          <button id="logout">log out</button>
+          <a href="../login-sigin/login.html">Back to login</a>
+        </nav>
+      </aside>
+      <main class="main">
+        <div class="topbar">
+          <div>
+            <p class="badge">Advertiser Workspace</p>
+            <h1>Welcome, <span id="welcome-name">Advertiser</span></h1>
+            <p id="role-tag">ADVERTISER</p>
+            <p class="badge muted">User: <span id="user-name">Advertiser</span> • Role: <span id="user-role">ADVERTISER</span></p>
+          </div>
+          <button id="logout-btn" class="secondary">Logout</button>
+        </div>
+        <section class="grid">
+          <article class="card">
+            <h3>Spend</h3>
+            <strong>$12,400</strong>
+            <p>Budget used this week</p>
+          </article>
+          <article class="card">
+            <h3>Clicks</h3>
+            <strong>3,480</strong>
+            <p>Engagement on active campaigns</p>
+          </article>
+          <article class="card">
+            <h3>CPM</h3>
+            <strong>$4.20</strong>
+            <p>Cost per mille</p>
+          </article>
+        </section>
+        <section class="content-grid">
+          <article class="card">
+            <h3>Campaign overview</h3>
+            <div id="ad-list"></div>
+          </article>
+          <article class="card">
+            <h3>Tips</h3>
+            <div class="mini-card">
+              <h3>Creative health</h3>
+              <p>Keep A/B tests active to improve ROAS.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

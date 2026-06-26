@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasks Hub | Global Ad Network</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <aside class="sidebar-card">
+        <p class="eyebrow">Operations</p>
+        <h1>Tasks Hub</h1>
+        <p class="muted">
+          Track campaign reviews, creative approvals, and publisher follow-up
+          from one compact workspace.
+        </p>
+        <ul>
+          <li id="#dashboard" class="list-card">dashboard</li>
+          <li id="#wallet" class="list-card">wallet</li>
+          <li id="#leaderboard" class="list-card">leaderboard</li>
+          <li class="list-card"><a href="../ai assistant/ai.html">assistant</a></li>
+          <li class="list-card"><a href="../users-dashboard">account</a></li>
+          <li id="#withdraw" class="list-card">withdraw</li>
+        </ul>
+        <a class="btn" href="../login-sigin/login.html">Back to login</a>
+      </aside>
+
+   
+    <section class="tasks-section">
+      <div id="withdraw-funds"></div>
+      <div class="tasks-header">
+        <div>
+          <p class="eyebrow">Task flow</p>
+          <h2>Choose a task and finish it</h2>
+        </div>
+        <p class="muted">Click any task card to open the finish-task section and update your balance once the step is complete.</p>
+      </div>
+
+      <div class="task-grid">
+        <article class="panel-card task-panel">
+          <h3>Available tasks</h3>
+          <div id="task-list" class="task-cards"></div>
+        </article>
+
+        <article class="panel-card accent-panel" id="finish-task">
+          <h3>Finish task</h3>
+          <p id="finish-message">Select a task to view the details here.</p>
+          <div class="finish-box">
+            <strong id="selected-task-name">No task selected</strong>
+            <span id="selected-task-reward">Reward: $0.00</span>
+          </div>
+          <p id="task-instructions" class="muted">Click any task card to load its completion step.</p>
+          <button id="complete-task-btn" class="btn btn-secondary" type="button" disabled>Complete task</button>
+        </article>
+
+        <article class="panel-card balance-panel">
+          <h3>Account balance</h3>
+          <p class="balance-amount" id="balance-amount">$0.00</p>
+          <p id="balance-note" class="muted">Your current balance will appear here after each completed task.</p>
+        </article>
+      </div>
+    </section>
+     </main>
+
+    <script src="tasks.js"></script>
+  </body>
+</html>
