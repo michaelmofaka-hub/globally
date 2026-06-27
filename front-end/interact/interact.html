@@ -159,7 +159,12 @@
         memberConversations[member].forEach((message) => {
           const bubble = document.createElement('article');
           bubble.className = `bubble ${message.type}`;
-          bubble.innerHTML = `<p>${message.text}</p><span>${message.time}</span>`;
+          const p = document.createElement('p');
+          p.textContent = message.text;
+          const span = document.createElement('span');
+          span.textContent = message.time;
+          bubble.appendChild(p);
+          bubble.appendChild(span);
           feed.appendChild(bubble);
         });
       }
@@ -168,7 +173,12 @@
         memberConversations[currentMember].push({ type, text, time: formatTime() });
         const bubble = document.createElement('article');
         bubble.className = `bubble ${type}`;
-        bubble.innerHTML = `<p>${text}</p><span>${memberConversations[currentMember].at(-1).time}</span>`;
+        const p = document.createElement('p');
+        p.textContent = text;
+        const span = document.createElement('span');
+        span.textContent = memberConversations[currentMember].at(-1).time;
+        bubble.appendChild(p);
+        bubble.appendChild(span);
         feed.appendChild(bubble);
         feed.scrollTop = feed.scrollHeight;
       }
