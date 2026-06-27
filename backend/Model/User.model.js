@@ -1,40 +1,59 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  username:{
-    type:string,
-    required:true
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
   },
-  password:{
-    type:string,
-    required:true
+  password: {
+    type: String,
+    required: true
   },
-  confirmpassword:{
-    type:string,
-    required:true
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true
   },
-  email:{
-    type:string,
-    required:true
+  userType: {
+    type: String,
+    enum: ['advertiser', 'publisher', 'investor'],
+    default: 'advertiser'
   },
-  mpesadetails:{
-    type:string,
-    
+  mpesaDetails: {
+    phoneNumber: String,
+    accountName: String
   },
-  amount:{
-    type:number,
-    default:7.00
+  walletBalance: {
+    type: Number,
+    default: 0
   },
-  followers:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:user
+  followers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }],
-  posts:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:user
-  }]
-},{timestamps:true});
+  following: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  profileImage: String,
+  bio: String,
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-const user = mongoose.model("userSchema", user);
+const User = mongoose.model("User", userSchema);
 
-export default user;
+export default User;
